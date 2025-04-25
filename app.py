@@ -35,6 +35,7 @@ st.markdown(
 # --- Load Model ---
 with open("best_model_crop_gwp.pkl", "rb") as f:
     model_c = cloudpickle.load(f)  # Predicts CropYield_T and GWP_T
+print(type(model_c))  # Check if it's a valid model (like a regressor, etc.)
 
 
 # --- Load Dataset for Feature Info ---
