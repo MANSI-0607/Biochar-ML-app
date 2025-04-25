@@ -2,6 +2,14 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+from sklearn.pipeline import Pipeline
+from sklearn.compose import ColumnTransformer
+from sklearn.impute import KNNImputer, SimpleImputer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.multioutput import MultiOutputRegressor
+from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
+from sklearn.linear_model import Ridge
+
 
 # --- Page Config ---
 st.set_page_config(page_title="🌿 Biochar Predictor", layout="wide")
