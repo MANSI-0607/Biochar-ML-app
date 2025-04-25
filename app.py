@@ -9,7 +9,7 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.multioutput import MultiOutputRegressor
 from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
 from sklearn.linear_model import Ridge
-
+import cloudpickle
 
 # --- Page Config ---
 st.set_page_config(page_title="🌿 Biochar Predictor", layout="wide")
@@ -33,7 +33,9 @@ st.markdown(
 )
 
 # --- Load Model ---
-model_c = joblib.load("best_model_crop_gwp.pkl")  # Predicts CropYield_T and GWP_T
+with open("best_model_crop_gwp.pkl", "rb") as f:
+    model_c = cloudpickle.load(f)  # Predicts CropYield_T and GWP_T
+
 
 # --- Load Dataset for Feature Info ---
 df = pd.read_csv('cleaned_features.csv', encoding='latin1')
